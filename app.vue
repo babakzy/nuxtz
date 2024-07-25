@@ -6,7 +6,14 @@
 </template>
 
 <script setup lang="ts">
+const router = useRouter()
+const route = useRoute()
 
+
+
+// onMounted(()=>{
+  
+// })
 </script>
 
 <style lang="scss">
