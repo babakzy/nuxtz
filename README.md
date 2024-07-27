@@ -1,10 +1,12 @@
-# Nuxt 3 Minimal Starter
+# Nuxtz - Nuxt 3 Boilerplate
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This boilerplate includes
+- Nuxt directory structures and sample files (Layouts, Pages, Components, Composables, utils, Layouts, assets)
+- Google fonts
+- Sass and global main.scss file
+- TailwindCSS
+- DaisyUI (Winter Theme)
 
-## Setup
-
-Make sure to install the dependencies:
 
 ```bash
 # npm
