@@ -33,7 +33,8 @@
     setup
     lang="ts"
 >
-
+const foo = useFoo();
+console.log(foo.value)
 </script>
 
 <style scoped>

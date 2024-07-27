@@ -1,7 +1,7 @@
-# Nuxtz - Nuxt 3 Boilerplate
+# Nuxtz - Nuxt 3 free Boilerplate
 
 This boilerplate includes
-- Nuxt directory structures and sample files (Layouts, Pages, Components, Composables, utils, Layouts, assets)
+- Nuxt directory structures and sample files (layouts, pages, components, composables, utils, assets)
 - Google fonts
 - Sass and global main.scss file
 - TailwindCSS
