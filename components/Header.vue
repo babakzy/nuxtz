@@ -1,24 +1,24 @@
 <template>
-    <div class=" bg-slate-200 " >
-<div class="md:container md:mx-auto py-3">
-    <div class="flex flex-wrap items-center">
-        <div class="basis-1/3">
-          <NuxtLink href="/" class="text-slate-600">Nuxt 3 Minimal Boilerplate </NuxtLink>
+    <div class="flex justify-between items-center p-4 fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 backdrop-blur-sm">
+        <NuxtLink to="/">
+            <h1 class="text-2xl font-bold">Minimalist Nuxt Boilerplate</h1>
+        </NuxtLink>
+        <div class="flex items-center gap-4">
+            <NuxtLink to="/">Home</NuxtLink>
+            <NuxtLink to="/about">About</NuxtLink>
+            <NuxtLink to="/contact">Contact</NuxtLink>
+            <label class="flex items-center gap-2">
+                <span>Dark Mode</span>
+                <Switch />
+            </label>
         </div>
-        <div class="basis-2/3 text-right">
-
-        </div>
-    </div>
-
-</div>
     </div>
 </template>
 
-<script setup >
-
-
+<script setup>
+import { Switch } from '@/components/ui/switch'
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

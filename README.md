@@ -1,12 +1,10 @@
-# Nuxtz - Nuxt 3 free Boilerplate
+# Nuxt Minimal Starter
 
-This boilerplate includes
-- Nuxt directory structures and sample files (layouts, pages, components, composables, utils, assets)
-- Google fonts
-- Sass and global main.scss file
-- TailwindCSS
-- DaisyUI (Winter Theme)
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
+## Setup
+
+Make sure to install dependencies:
 
 ```bash
 # npm
@@ -31,7 +29,7 @@ Start the development server on `http://localhost:3000`:
 npm run dev
 
 # pnpm
-pnpm run dev
+pnpm dev
 
 # yarn
 yarn dev
@@ -49,7 +47,7 @@ Build the application for production:
 npm run build
 
 # pnpm
-pnpm run build
+pnpm build
 
 # yarn
 yarn build
@@ -65,7 +63,7 @@ Locally preview production build:
 npm run preview
 
 # pnpm
-pnpm run preview
+pnpm preview
 
 # yarn
 yarn preview
