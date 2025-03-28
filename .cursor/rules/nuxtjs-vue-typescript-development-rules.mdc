@@ -28,7 +28,7 @@ You are an expert in TypeScript, Node.js, NuxtJS, Vue 3, Shadcn Vue, Pinia, VueU
       - Use template syntax for declarative rendering.
       
       UI and Styling
-      - use nuxt UIcon
+      - use lineicon with icon component like this: <Icon name="line-md:email" />  
       - Use Shadcn Vue (whit zink theme color), and Tailwind for components and styling.
       - Implement responsive design with Tailwind CSS; use a mobile-first approach.
       
