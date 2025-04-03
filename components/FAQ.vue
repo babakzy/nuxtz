@@ -1,29 +1,15 @@
 <template>
-  <section class="faq-section flex flex-wrap justify-center mt-20">
-    <div class="basis-full md:basis-1/2">
+  <section  class="faq-section flex flex-wrap justify-center mt-20">
+    <div  class="basis-full md:basis-1/2 md:pr-4">
         <h2 class="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
-        <p class="text-gray-600 dark:text-gray-400">If you have any questions, please feel free to ask me personally.</p>
-        <div class="flex gap-3 items-center mt-6">
-          <img src="/images/babakzy.jpg" class="w-16 h-16 rounded-full" />
-          <div>
-            <h3 class="text-lg font-semibold">Babak Sadeghzadeh</h3>
-            <!-- <p class="text-sm text-gray-600 dark:text-gray-400">Maker of Nuxtz Boilerplate</p> -->
-            <div class="flex gap-3 mt-2">
-              <a href="https://babakzy.com" target="_blank" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">
-                <Icon name="ph:globe" class="w-5 h-5" />
-              </a>
-              <a href="https://x.com/babakzy" target="_blank" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">
-                <Icon name="lineicons:x" class="w-5 h-5" />
-              </a>
-              <a href="https://github.com/babakzy" target="_blank" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">
-                <Icon name="lineicons:github" class="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-        </div>
+       <h1 class="text-2xl font-bold">What is Nuxt Boilerplate?</h1>
+        <p class="">Nuxtz is a boilerplate for Nuxt.js. It is the same Nuxt project but with some popular configurations and features that are used to create a modern and efficient web application faster and easier without the need to start from scratch and configure everything from scratch.</p>
+      
+        <p class="my-6">If you have any questions, please feel free to ask me (<a href="https://babakzy.com" class="text-blue-500 hover:text-blue-700">Babak Sadeghzadeh</a>) personally.</p>
+     
     </div>
-    <div class="basis-full md:basis-1/2">
-        <div class="space-y-6">
+    <div id="faq" class="basis-full md:basis-1/2">
+        <div class="space-y-4">
       <div v-for="(faq, index) in faqs" :key="index" class="faq-item">
         <button 
           class="w-full flex justify-between items-center text-left"
@@ -50,7 +36,7 @@
           leave-from-class="max-h-[500px] opacity-100"
           leave-to-class="max-h-0 opacity-0"
         >
-          <p v-show="openIndex === index" class="text-gray-600 mt-2 overflow-hidden">{{ faq.answer }}</p>
+          <p v-show="openIndex === index" class="text-gray-600 dark:text-gray-400 mt-2 overflow-hidden">{{ faq.answer }}</p>
         </transition>
       </div>
       </div>
@@ -66,18 +52,21 @@ export default defineComponent({
   data() {
     return {
       openIndex: null as number | null,
-      faqs: [
+      faqs: [  {
+          question: 'What is the benefit of using this boilerplate?',
+          answer: 'The benefit of using this boilerplate is that you can save time and effort by using a pre-configured project that is ready to use. You can also customize the project to your needs by adding or removing features.'
+        },
         {
           question: 'What technologies are included in this boilerplate?',
           answer: 'This boilerplate includes Nuxt.js, Vue 3, TypeScript, and TailwindCSS, providing a modern and robust foundation for your web applications.'
         },
         {
           question: 'How do I get started with development?',
-          answer: 'After cloning the repository, run `npm install` to install dependencies, then `npm run dev` to start the development server. The application will be available at localhost:3000.'
+          answer: 'After purchasing the boilerplate, you will receive a zip file containing the boilerplate. Unzip the file and run `npm install` to install dependencies, then `npm run dev` to start the development server. The application will be available at localhost:3000. You can also find the official documentation of Nuxt.js on www.nuxt.com.'
         },
         {
-          question: 'Is this boilerplate suitable for production use?',
-          answer: 'Yes, this boilerplate follows best practices and includes optimizations for production deployment. Use `npm run build` to create a production build.'
+          question: 'Does it have refund policy?',
+          answer: 'No, this boilerplate is a one-time purchase and because of the nature of the product, it does not have a refund policy.'
         },
         {
           question: 'Can I customize the included features?',
@@ -101,6 +90,6 @@ export default defineComponent({
 <style scoped>
 
 .faq-item {
-  @apply bg-white p-6 rounded-lg border border-gray-200 dark:border-gray-800;
+  @apply p-5 rounded-lg border border-gray-200 dark:border-gray-800;
 }
 </style> 

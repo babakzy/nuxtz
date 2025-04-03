@@ -1,0 +1,12 @@
+html{
+    scroll-behavior: smooth;
+}
+
+p{
+    @apply text-zinc-900 dark:text-zinc-300;
+}
+
+h1 ,h2 ,h3 ,h4 ,h5 ,h6 {
+    @apply text-zinc-900 dark:text-zinc-50;
+}
+

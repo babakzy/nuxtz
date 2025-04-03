@@ -13,5 +13,9 @@ export default defineNuxtConfig({
      * @default "./components/ui"
      */
     componentDir: './components/ui'
-  }
+  },
+  image: {
+    // Options
+  },
+  css: ['~/assets/css/default.scss'],
 })

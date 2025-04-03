@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col items-center justify-center py-20">
+    <div class="flex flex-col items-center justify-center mt-20">
         <h3
             class="text-sm mb-3 inline-block px-3 py-1 rounded-full bg-gradient-to-br from-green-700 to-lime-700 text-white">
             Great for Vibe Coding</h3>
@@ -9,10 +9,13 @@
                 class="underline">Nuxt Icons</span>.</p>
         <p class="text-lg text-gray-600 dark:text-gray-200">It includes basic setup for routing, components, and other
             almost neccessary things for every real-world Nuxt project.</p>
-        <!-- <Button class="mt-4">Click me</Button> -->
-        <code class="mt-4 p-4  rounded-md border border-gray-200 dark:border-gray-800">
+<div class="flex gap-2 mt-4">
+    <Button variant="outline">See Demo</Button>
+    <Button>Get Boilerplate</Button>
+</div>
+        <!-- <code class="mt-4 p-4  rounded-md border border-gray-200 dark:border-gray-800">
                    git clone https://github.com/shadcn-ui/ui.git
-        </code>
+        </code> -->
     </div>
    
     <Options />
@@ -21,6 +24,7 @@
 
 
     <FAQ />
+    <Footer></Footer>
 </template>
 
 <script setup>
