@@ -1,6 +1,6 @@
 <template>
     <div class="border-b border-gray-200 dark:border-gray-800">
-    <div class="container max-w-78xl mx-auto px-4">
+    <div class="container max-w-78xl mx-auto">
      <div class="flex relative justify-between items-center p-4" >
         <NuxtLink to="/">
             <h1 class="text-2xl font-bold">Nuxtz</h1>
