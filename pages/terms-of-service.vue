@@ -15,6 +15,7 @@
         <h2 class="text-2xl font-semibold mb-3">2. Use License</h2>
         <p>
           Permission is granted to temporarily download one copy of the materials (information or software) on this website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+        </p>
           <ul class="list-disc ml-6 mt-2">
             <li>modify or copy the materials;</li>
             <li>use the materials for any commercial purpose;</li>
@@ -22,7 +23,7 @@
             <li>remove any copyright or other proprietary notations from the materials;</li>
             <li>transfer the materials to another person or "mirror" the materials on any other server.</li>
           </ul>
-        </p>
+       
       </section>
 
       <section class="mb-6">

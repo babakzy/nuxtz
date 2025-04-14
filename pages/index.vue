@@ -10,7 +10,7 @@
         <p class="text-lg text-gray-600 dark:text-gray-200">It includes basic setup for routing, components, and other
             almost neccessary things for every real-world Nuxt project.</p>
 <div class="flex gap-2 mt-4">
-    <Button variant="outline">See Demo</Button>
+    <Button variant="outline" @click="goToDemo">See Demo</Button>
     <Button>Start Now</Button>
 </div>
         <!-- <code class="mt-4 p-4  rounded-md border border-gray-200 dark:border-gray-800">
@@ -29,7 +29,9 @@
 
 <script setup>
 import { Button } from "@/components/ui/button"
-
+function goToDemo() {
+    window.open("https://nuxtz-demo.vercel.app/", "_blank")
+}
 </script>
 
 <style lang="scss" scoped></style>
