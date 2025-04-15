@@ -30,11 +30,12 @@
         </div>
         <div class="basis-full md:basis-1/4">
             <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
-                <Icon name="ph:folder-simple" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
-                <h3 class="font-bold text-xl">Nuxt Directory Essentials</h3>
-                <p>Organized project structure for efficient development.</p>
+                <Icon name="ph:robot" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
+                <h3 class="font-bold text-xl">MCP Server</h3>
+                <p>MCP server helping models to understand your Nuxt app better.</p>
             </div>
         </div>
+
         <div class="basis-full md:basis-1/4">
             <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
                 <Icon name="ph:notebook" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
@@ -58,18 +59,19 @@
         </div>
         <div class="basis-full md:basis-1/4">
             <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
+                <Icon name="ph:folder-simple" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
+                <h3 class="font-bold text-xl">Nuxt Directory Essentials</h3>
+                <p>Organized project structure for efficient development.</p>
+            </div>
+        </div>
+        <div class="basis-full md:basis-1/4">
+            <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
                 <Icon name="ph:layout" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
                 <h3 class="font-bold text-xl">Minimal Landing Page</h3>
                 <p>A clean landing for app landing pages.</p>
             </div>
         </div>
-        <div class="basis-full md:basis-1/4">
-            <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
-                <Icon name="ph:robot" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
-                <h3 class="font-bold text-xl">Premade AI Commands</h3>
-                <p>Ready-to-use commands to enhance your workflow.</p>
-            </div>
-        </div>
+
         <div class="basis-full md:basis-1/4">
                     <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
                 <Icon name="ph:puzzle-piece" class="text-3xl mb-2 text-green-600 dark:text-green-300" />

@@ -24,7 +24,6 @@
 
 
     <FAQ />
-    <Footer></Footer>
 </template>
 
 <script setup>

@@ -1,11 +1,11 @@
 <template>
     <footer class=" py-8 mt-20">
-      <div class="container mx-auto px-4">
+      <div class="container max-w-7xl mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <!-- Company Info -->
           <div>
             <h3 class="font-bold text-xl mb-4">Nuxtz</h3>
-            <p class="text-gray-600 mb-4">Your trusted platform for building amazing web applications.</p>
+            <p class="text-gray-600 mb-4">Your trusted boilerplate for building amazing web applications extra fast.</p>
             <div class="flex space-x-4">
               <a href="https://x.com/babakzy" target="_blank">
                 <i class="fab fa-twitter"></i>
