@@ -5,8 +5,13 @@
         <NuxtPage />
       </main>
     </NuxtLayout>
+    <Toast />
   </div>
 </template>
+
+<script setup>
+import Toast from '@/components/Toast.vue'
+</script>
 
 <style>
 :root {

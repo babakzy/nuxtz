@@ -41,7 +41,12 @@
   
           <!-- Newsletter -->
           <div>
-            <h4 class="font-semibold text-lg mb-4">Maker</h4>
+            <h4 class="font-semibold text-lg mb-4">Contact</h4>
+            <div class="text-sm text-gray-600">
+              Expassador OÜ
+              <br>
+              Address: Juhkentali tn 8, 10132 Tallinn, Harjumaa, Estonia
+            </div>
             <div class="flex gap-3 items-center mt-6">
           <img src="/images/babakzy.jpg" class="w-16 h-16 rounded-full" />
           <div>
