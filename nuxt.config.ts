@@ -29,7 +29,8 @@ export default defineNuxtConfig({
     },
     // Keys within private are only available server-side
     stripeSecretKey: process.env.STRIPE_SECRET, // Get from .env
-    supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY // Add your Supabase Service Role Key to .env for server-side updates
+    supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY, // Add your Supabase Service Role Key to .env for server-side updates
+    resendApiKey: process.env.RESEND_API_KEY, // Resend API key for sending emails
   },
   shadcn: {
     /**

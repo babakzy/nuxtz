@@ -24,6 +24,7 @@
     "nuxt": "^3.16.1",
     "nuxt-mcp": "^0.1.2",
     "reka-ui": "^2.1.0",
+    "resend": "^4.3.0",
     "shadcn-nuxt": "^1.0.3",
     "stripe": "^18.0.0",
     "tailwind-merge": "^3.0.2",

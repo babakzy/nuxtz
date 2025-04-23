@@ -1,6 +1,7 @@
 import { defineEventHandler, readBody, createError } from 'h3'
 // Import the standard client for anonymous access
 import { serverSupabaseClient } from '#supabase/server'
+import { EmailService } from '../utils/emailService'
 
 // Define the expected body structure
 interface WaitlistBody {
@@ -101,6 +102,26 @@ export default defineEventHandler(async (event) => {
       }
 
       console.log('[/api/add-to-waitlist] Successfully inserted email');
+      
+      // Get Resend API key from runtime config
+      const config = useRuntimeConfig(event);
+      
+      // Initialize the email service
+      const emailService = EmailService.fromRuntimeConfig(config);
+      
+      // Send confirmation email
+      try {
+        const emailSent = await emailService.sendWaitlistConfirmation(body.email);
+        if (emailSent) {
+          console.log(`[/api/add-to-waitlist] Sent confirmation email to ${body.email}`);
+        } else {
+          console.warn(`[/api/add-to-waitlist] Failed to send confirmation email to ${body.email}`);
+        }
+      } catch (emailError) {
+        // Log the error but don't fail the request - user is still on waitlist
+        console.error('[/api/add-to-waitlist] Email service error:', emailError);
+      }
+      
       // Success
       // Set status code to 201 for resource creation
       event.node.res.statusCode = 201;

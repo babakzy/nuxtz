@@ -1,5 +1,5 @@
 import { defineEventHandler, readBody, createError } from 'h3'
-// Import the specific service role client function
+// Switch back to service role for admin operations
 import { serverSupabaseServiceRole } from '#supabase/server'
 
 // Define the expected structure for the database interactions
@@ -9,6 +9,7 @@ interface CustomerInsert {
   company_name?: string | null
   phone_number?: string | null
   payment_status?: string | null
+  product_name?: string | null
 }
 
 interface CustomerRow {
@@ -39,12 +40,9 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  // Get the Supabase client instance explicitly using the Service Role Key
-  const supabaseAdmin = serverSupabaseServiceRole<Database>(event)
-
   // --- Remove or comment out the test read, no longer needed for diagnosis ---
   // try {
-  //   const { error: testReadError } = await supabaseAdmin.from('customers').select('id').limit(1);
+  //   const { error: testReadError } = await supabase.from('customers').select('id').limit(1);
   //   if (testReadError) {
   //     console.log('[create-customer] Test read failed: ', testReadError.message);
   //   } else {
@@ -56,15 +54,24 @@ export default defineEventHandler(async (event) => {
   // --------------------------------------------------------------------------
 
   try {
+    // Log the input data for debugging
+    console.log('[create-customer] Input data:', JSON.stringify(body, null, 2));
+    
+    // Switch back to service role client
+    const supabaseAdmin = await serverSupabaseServiceRole<Database>(event)
+    
     const customerData: CustomerInsert = {
       full_name: body.full_name,
       email: body.email,
       company_name: body.company_name || null,
       phone_number: body.phone_number || null,
       payment_status: 'pending',
+      product_name: body.product_name || null,
     }
 
-    // Use the admin client which bypasses RLS
+    console.log('[create-customer] Prepared data for insert:', JSON.stringify(customerData, null, 2));
+
+    // Use the service role client to bypass RLS
     const { data: newCustomer, error } = await supabaseAdmin
       .from('customers')
       .insert(customerData)
@@ -72,14 +79,31 @@ export default defineEventHandler(async (event) => {
       .single()     // Expect a single row back
 
     if (error) {
-      // Log the error regardless of type now
-      console.error('Supabase insert error (using Service Role): ', error);
-      // Check for unique constraint violation (e.g., duplicate email)
-      if (error.code === '23505') { // Postgres unique violation code
-         throw createError({ statusCode: 409, statusMessage: 'Email already exists.', data: { code: 'DUPLICATE_EMAIL' } })
+      // Log the detailed error for diagnosis
+      console.error('Supabase insert error (using service role):', {
+        message: error.message,
+        code: error.code,
+        details: error.details,
+        hint: error.hint,
+        fullError: JSON.stringify(error, null, 2)
+      });
+      
+      // NOTE: We've removed the duplicate email check since we're allowing repeated emails now
+      // RLS policy allows anon insert, so errors might be constraints (like unique email if re-enabled) or DB issues.
+      // If using service_role, RLS check isn't the primary concern here. Check for other constraints.
+      if (error.code === '23505') { // Handle potential unique constraint violations
+           throw createError({ 
+             statusCode: 409, 
+             statusMessage: 'This email might already be registered.', // Adjust message as needed
+             data: { code: 'DUPLICATE_ENTRY' } 
+           })
       }
-      // For any other insert error using service role, it's likely a server/DB issue
-      throw createError({ statusCode: 500, statusMessage: 'Failed to create customer record in database.' })
+      
+      // For any database error
+      throw createError({ 
+        statusCode: 500, 
+        statusMessage: `Failed to create customer record in database: ${error.message || 'Unknown error'}` 
+      })
     }
 
     if (!newCustomer || !newCustomer.id) {
@@ -87,6 +111,8 @@ export default defineEventHandler(async (event) => {
         throw createError({ statusCode: 500, statusMessage: 'Failed to retrieve customer ID after creation.' })
     }
 
+    console.log('[create-customer] Successfully created customer with ID:', newCustomer.id);
+    
     // Return the ID of the newly created customer
     return { customerId: newCustomer.id }
 
@@ -96,6 +122,9 @@ export default defineEventHandler(async (event) => {
     if (error.statusCode) {
         throw error;
     }
-    throw createError({ statusCode: 500, statusMessage: 'An unexpected error occurred.' })
+    throw createError({ 
+      statusCode: 500, 
+      statusMessage: `An unexpected error occurred: ${error.message || 'Unknown error'}` 
+    })
   }
 }) 

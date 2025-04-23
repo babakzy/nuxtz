@@ -142,6 +142,10 @@ const formData = reactive({
 // Your Stripe Payment Link URL
 const STRIPE_PAYMENT_LINK_URL = 'https://buy.stripe.com/test_3cs8zx8oBak73Ju000'
 
+// Add a computed property for your success URL - fix for SSR
+const BASE_URL = typeof window !== 'undefined' ? window.location.origin : ''
+const SUCCESS_URL = `${BASE_URL}/payment-success`
+
 const closeModal = () => {
   if (!loading.value) {
      emit('update:isOpen', false)
@@ -163,6 +167,7 @@ const handleSubmit = async () => {
           email: formData.email,
           company_name: formData.companyName || null,
           phone_number: formData.phoneNumber || null,
+          product_name: 'Standard Plan',
       }
     })
 
@@ -181,11 +186,17 @@ const handleSubmit = async () => {
         throw new Error('API did not return a customer ID.')
     }
 
-    // Construct the Stripe URL with client_reference_id
-    const stripeUrl = `${STRIPE_PAYMENT_LINK_URL}?client_reference_id=${data.value.customerId}`
+    // Construct the Stripe URL - use success_url instead of redirect_url
+    const successUrl = encodeURIComponent(`${SUCCESS_URL}?session_id={CHECKOUT_SESSION_ID}`)
+    const stripeUrl = `${STRIPE_PAYMENT_LINK_URL}?client_reference_id=${data.value.customerId}&success_url=${successUrl}`
 
-    // Redirect to Stripe
-    window.location.href = stripeUrl
+    // Log the URL being used
+    console.log(`[CustomerModal] Redirecting to Stripe:`, stripeUrl);
+
+    // Redirect to Stripe - fix for SSR
+    if (typeof window !== 'undefined') {
+      window.location.href = stripeUrl
+    }
 
     // Form reset isn't strictly necessary due to redirect
     formData.fullName = ''
@@ -209,4 +220,4 @@ const handleSubmit = async () => {
     }
   }
 }
-</script> 
+</script>
