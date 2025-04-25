@@ -11,7 +11,9 @@
             almost neccessary things for every real-world Nuxt project.</p>
 <div class="flex gap-2 mt-4">
     <Button variant="outline" @click="goToDemo">See Demo</Button>
-    <Button>Start Now</Button>
+    <a href="#pricing">
+        <Button>Start Now</Button>
+    </a>
 </div>
         <!-- <code class="mt-4 p-4  rounded-md border border-gray-200 dark:border-gray-800">
                    git clone https://github.com/shadcn-ui/ui.git
