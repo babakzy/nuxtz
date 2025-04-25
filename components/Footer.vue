@@ -5,7 +5,8 @@
           <!-- Company Info -->
           <div>
             <h3 class="font-bold text-xl mb-4">Nuxtz</h3>
-            <p class="text-gray-600 mb-4">Your trusted boilerplate for building amazing web applications extra fast.</p>
+            <p class="text-gray-600 mb-4">Nuxt.js boilerplate for building amazing web applications extra fast with TailwindCSS and AI.</p>
+            <a href="https://www.producthunt.com/posts/nuxtz?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-nuxtz" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=957654&theme=light&t=1745565554576" alt="Nuxtz - Nuxt&#0046;js&#0032;Boilerplate | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
             <div class="flex space-x-4">
               <a href="https://x.com/babakzy" target="_blank">
                 <i class="fab fa-twitter"></i>
