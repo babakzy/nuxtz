@@ -44,6 +44,7 @@ export default defineNuxtConfig({
     // Keys within public are also exposed client-side
     public: {
       // Add public keys here if needed
+      stripePaymentLinkUrl: process.env.STRIPE_PAYMENT_LINK_URL_LIVE,
     },
     // Keys within private are only available server-side
     stripeSecretKey: process.env.STRIPE_SECRET, // Get from .env

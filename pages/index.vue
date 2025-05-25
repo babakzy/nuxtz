@@ -2,7 +2,7 @@
     <div class="flex flex-col items-center justify-center mt-20">
         <h3
             class="text-sm mb-3 inline-block px-3 py-1 rounded-full bg-gradient-to-br from-green-700 to-lime-700 text-white">
-            Great for Vibe Coding</h3>
+            Great for coding with AI</h3>
         <h1 class="text-5xl font-bold">Minimal Nuxt Boilerplate</h1>
         <p class="text-lg text-gray-600 dark:text-gray-200 mt-4">This is a minimalistic Nuxt boilerplate that includes
             <span class="underline">Tailwind CSS</span>, <span class="underline">Shadcn UI</span>, and <span

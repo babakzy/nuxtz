@@ -114,7 +114,8 @@ import {
   TransitionRoot,
 } from '@headlessui/vue'
 // No direct Supabase client needed here
-// import { useSupabaseClient } from '#imports' 
+// import { useSupabaseClient } from '#imports'
+import { useRuntimeConfig } from '#app' // Import useRuntimeConfig
 
 // Interface for the expected API response
 interface CreateCustomerResponse {
@@ -140,7 +141,9 @@ const formData = reactive({
 })
 
 // Your Stripe Payment Link URL
-const STRIPE_PAYMENT_LINK_URL = 'https://buy.stripe.com/test_3cs8zx8oBak73Ju000'
+// const STRIPE_PAYMENT_LINK_URL = 'https://buy.stripe.com/test_3cs8zx8oBak73Ju000'
+const config = useRuntimeConfig()
+const STRIPE_PAYMENT_LINK_URL = config.public.stripePaymentLinkUrl as string
 
 // Add a computed property for your success URL - fix for SSR
 const BASE_URL = typeof window !== 'undefined' ? window.location.origin : ''

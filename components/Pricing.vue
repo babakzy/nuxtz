@@ -8,7 +8,7 @@
                 <div class="flex-grow">
                     <h3 class="font-bold text-2xl">Minimal Boilerplate </h3>
                     <span class="text-sm font-normal text-gray-500">(frontend only)</span>
-                    <h2 class="text-4xl mt-4 font-bold">35$</h2>
+                    <h2 class="text-4xl mt-4 font-bold">45$</h2>
                     <span class="text-sm font-normal text-gray-500">One time payment</span>
                     <ul class="mt-4 text-left text-sm">
                         <li class="mb-2">Connect your preferred database, CMS, backend, API, etc.</li>
