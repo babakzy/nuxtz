@@ -30,9 +30,9 @@
         </div>
         <div class="basis-full md:basis-1/4">
             <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
-                <Icon name="ph:robot" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
-                <h3 class="font-bold text-xl">MCP Server</h3>
-                <p>MCP server helping models to understand your Nuxt app better.</p>
+                <Icon name="ph:palette" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
+                <h3 class="font-bold text-xl">SCSS Support</h3>
+                <p>Sass/SCSS styling with a ready-made global stylesheet.</p>
             </div>
         </div>
 
@@ -81,9 +81,9 @@
         </div>
         <div class="basis-full md:basis-1/4">
             <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
-                <Icon name="ph:infinity" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
-                <h3 class="font-bold text-xl">LifeTime Updates</h3>
-                <p>Continuous updates to keep your project up-to-date.</p>
+                <Icon name="ph:github-logo" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
+                <h3 class="font-bold text-xl">Free & Open Source</h3>
+                <p>Clone from GitHub and use it freely for any project.</p>
             </div>
         </div>
     </div>

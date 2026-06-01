@@ -9,20 +9,21 @@
             <NuxtLink to="/" class="flex items-center gap-2">
                 Home
             </NuxtLink>
+            <a href="#install" class="flex items-center gap-2">
+                Get Started
+            </a>
             <a href="#faq" class="flex items-center gap-2">
                 FAQ
             </a>
-            <a href="#pricing" class="flex items-center gap-2">
-                Pricing
+            <a href="https://github.com/babakzy/nuxtz" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2">
+                <Icon name="lineicons:github" class="w-5 h-5" />
+                GitHub
             </a>
             
             <button @click="toggleDark()" class="flex items-center cursor-pointer">
                 <Icon v-if="isDark" name="lineicons:sun" class="w-6 h-6 hover:text-yellow-500 cursor-pointer" />
                 <Icon v-else name="lineicons:moon-half-right-5" class="w-6 h-6 hover:text-blue-500 cursor-pointer" />
             </button>
-            <!-- <a class="inline-block w-6 h-6 cursor-pointer" href="https://github.com/nuxtz" target="_blank">
-                <Icon name="lineicons:github" class="w-6 h-6 dark:hover:text-gray-200 hover:text-gray-600" />
-            </a> -->
         </div>
      </div>
     </div>
@@ -34,7 +35,3 @@ import { useDark, useToggle } from '@vueuse/core'
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 </script>
-
-<style lang="scss" scoped>
-
-</style>

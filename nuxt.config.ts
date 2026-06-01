@@ -1,12 +1,47 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: '2025-07-15',
+  srcDir: '.',
+  dir: {
+    app: 'app',
+  },
   app: {
     head: {
+      title: 'Nuxtz — Free Nuxt 4 Boilerplate',
+      htmlAttrs: { lang: 'en' },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          name: 'description',
+          content: 'Nuxtz is a free, open-source Nuxt 4 boilerplate with Tailwind CSS, Shadcn UI, Nuxt Icons, and Cursor rules — clone it and start building in minutes.',
+        },
+        { name: 'keywords', content: 'Nuxt 4, Vue 3, boilerplate, Tailwind CSS, Shadcn UI, free, open source, starter template' },
+        { name: 'author', content: 'Babak Sadeghzadeh' },
+        { name: 'robots', content: 'index, follow' },
+        { property: 'og:title', content: 'Nuxtz — Free Nuxt 4 Boilerplate' },
+        {
+          property: 'og:description',
+          content: 'A free, open-source Nuxt 4 starter with Tailwind CSS, Shadcn UI, Nuxt Icons, and AI-friendly Cursor rules.',
+        },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://nuxtz.vercel.app' },
+        { property: 'og:site_name', content: 'Nuxtz' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'Nuxtz — Free Nuxt 4 Boilerplate' },
+        {
+          name: 'twitter:description',
+          content: 'Clone, install, and ship faster with a modern Nuxt 4 starter template.',
+        },
+        { name: 'twitter:creator', content: '@babakzy' },
+      ],
+      link: [
+        { rel: 'canonical', href: 'https://nuxtz.vercel.app' },
+      ],
       script: [
         {
           async: true,
-          src: 'https://www.googletagmanager.com/gtag/js?id=G-41XN9ZLJH0'
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-41XN9ZLJH0',
         },
         {
           innerHTML: `
@@ -14,10 +49,10 @@ export default defineNuxtConfig({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-41XN9ZLJH0');
-          `
-        }
-      ]
-    }
+          `,
+        },
+      ],
+    },
   },
   devtools: { enabled: true },
   modules: [
@@ -26,44 +61,12 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
-    'nuxt-mcp',
-    '@nuxtjs/supabase'
+    'nuxt-mcp-dev',
   ],
-  supabase: {
-    redirect: false
-  },
-  vite: {
-    optimizeDeps: {
-      include: [
-        '@supabase/supabase-js',
-        '@supabase/ssr'
-      ]
-    }
-  },
-  runtimeConfig: {
-    // Keys within public are also exposed client-side
-    public: {
-      // Add public keys here if needed
-      stripePaymentLinkUrl: process.env.STRIPE_PAYMENT_LINK_URL_LIVE,
-    },
-    // Keys within private are only available server-side
-    stripeSecretKey: process.env.STRIPE_SECRET, // Get from .env
-    supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY, // Add your Supabase Service Role Key to .env for server-side updates
-    resendApiKey: process.env.RESEND_API_KEY, // Resend API key for sending emails
-  },
   shadcn: {
-    /**
-     * Prefix for all the imported component
-     */
     prefix: '',
-    /**
-     * Directory that the component lives in.
-     * @default "./components/ui"
-     */
-    componentDir: './components/ui'
+    componentDir: './components/ui',
   },
-  image: {
-    // Options
-  },
+  image: {},
   css: ['~/assets/css/default.scss'],
 })

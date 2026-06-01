@@ -12,8 +12,7 @@
           <ul class="list-disc ml-6 mt-2">
             <li>Name and contact information when you create an account</li>
             <li>Communication preferences and settings</li>
-            <li>Transaction and payment information</li>
-            <li>Usage data and interaction with our services</li>
+            <li>Usage data and interaction with our website</li>
           </ul>
           We also automatically collect certain information when you visit our website, including your IP address, browser type, operating system, and cookies.
      
