@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
+  // layers/design-kit is auto-registered from the layers/ directory
   srcDir: '.',
   dir: {
     app: 'app',
@@ -57,16 +58,17 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxt/icon',
-    '@nuxt/fonts',
     '@nuxt/image',
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
     'nuxt-mcp-dev',
   ],
+  // Inter is self-hosted via @fontsource-variable/inter (design-kit layer).
+  // Re-add @nuxt/fonts when you need remote/local font providers for extra families.
   shadcn: {
     prefix: '',
     componentDir: './components/ui',
   },
   image: {},
-  css: ['~/assets/css/default.scss'],
+  css: ['~/assets/css/default.scss', '~/assets/css/tailwind.css'],
 })

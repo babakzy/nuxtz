@@ -1,56 +1,56 @@
 <template>
-  <div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-6">Privacy Policy</h1>
-    <div class="prose max-w-none">
-      <p class="mb-4">Last updated: {{ new Date().toLocaleDateString() }}</p>
-      
-      <section class="mb-6">
-        <h2 class="text-2xl font-semibold mb-3">1. Information We Collect</h2>
-        <p>
-          We collect information that you provide directly to us, including:
-        </p>
-          <ul class="list-disc ml-6 mt-2">
-            <li>Name and contact information when you create an account</li>
-            <li>Communication preferences and settings</li>
-            <li>Usage data and interaction with our website</li>
-          </ul>
-          We also automatically collect certain information when you visit our website, including your IP address, browser type, operating system, and cookies.
-     
-      </section>
+  <div class="mx-auto max-w-content px-6 py-16 md:py-20">
+    <h1 class="dk-display-lg text-[var(--dk-ink)] mb-6">
+      Privacy Policy
+    </h1>
+    <div class="dk-body space-y-6 text-[var(--dk-ink-muted-80)]">
+      <p class="dk-caption text-[var(--dk-ink-muted-48)]">
+        Last updated: {{ updated }}
+      </p>
 
-      <section class="mb-6">
-        <h2 class="text-2xl font-semibold mb-3">2. How We Use Your Information</h2>
+      <section>
+        <h2 class="dk-body-strong text-[var(--dk-ink)] mb-2">
+          1. Information We Collect
+        </h2>
         <p>
-          We use the collected information for various purposes:
-        </p>
-          <ul class="list-disc ml-6 mt-2">
-            <li>To provide and maintain our services</li>
-            <li>To notify you about changes to our services</li>
-            <li>To provide customer support</li>
-            <li>To gather analysis or valuable information to improve our services</li>
-            <li>To detect, prevent and address technical issues</li>
-          </ul>
-        <p> 
-          We may use third-party service providers to help us analyze how our service is used and to process data on our behalf.
+          We collect information that you provide directly to us, including name and contact information when you create an account, communication preferences, and usage data. We also automatically collect certain information when you visit our website, including your IP address, browser type, operating system, and cookies.
         </p>
       </section>
 
-      <section class="mb-6">
-        <h2 class="text-2xl font-semibold mb-3">3. Data Protection</h2>
+      <section>
+        <h2 class="dk-body-strong text-[var(--dk-ink)] mb-2">
+          2. How We Use Your Information
+        </h2>
         <p>
-          We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:
+          We use the collected information to provide and maintain our services, notify you about changes, provide support, improve the product, and detect or address technical issues. We may use third-party providers to help analyze usage and process data on our behalf.
         </p>
-          <ul class="list-disc ml-6 mt-2">
-            <li>Encryption of data in transit and at rest</li>
-            <li>Regular security assessments and audits</li>
-            <li>Access controls and authentication measures</li>
-            <li>Employee training on data protection and security</li>
-          </ul>
-          <p>
-            However, please note that no method of transmission over the Internet or electronic storage is 100% secure.
-          </p>
-    
       </section>
+
+      <section>
+        <h2 class="dk-body-strong text-[var(--dk-ink)] mb-2">
+          3. Data Protection
+        </h2>
+        <p>
+          We implement appropriate security measures to protect your personal information. No method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.
+        </p>
+      </section>
+
+      <DkTextLink href="/">
+        Back to home
+      </DkTextLink>
     </div>
   </div>
-</template> 
+</template>
+
+<script setup lang="ts">
+useSeoMeta({
+  title: 'Privacy Policy — Nuxtz',
+  description: 'Privacy policy for the Nuxtz Nuxt 4 boilerplate site.',
+})
+
+const updated = new Date().toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+})
+</script>

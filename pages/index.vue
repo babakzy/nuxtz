@@ -1,36 +1,41 @@
 <template>
-  <div class="flex flex-col items-center justify-center mt-20">
-    <h3
-      class="text-sm mb-3 inline-block px-3 py-1 rounded-full bg-gradient-to-br from-green-700 to-lime-700 text-white">
-      Free &amp; Open Source
-    </h3>
-    <h1 class="text-5xl font-bold text-center">Minimal Nuxt Boilerplate</h1>
-    <p class="text-lg text-gray-600 dark:text-gray-200 mt-4 text-center max-w-2xl">
-      A free Nuxt 4 starter with
-      <span class="underline">Tailwind CSS</span>,
-      <span class="underline">Shadcn UI</span>, and
-      <span class="underline">Nuxt Icons</span>.
-    </p>
-    <p class="text-lg text-gray-600 dark:text-gray-200 text-center max-w-2xl">
-      Includes routing, components, dark mode, Cursor rules, and everything you need to ship a real-world Nuxt project.
-    </p>
-    <div class="flex gap-2 mt-4">
-      <Button variant="outline" @click="goToDemo">See Demo</Button>
-      <a href="#install">
-        <Button>Get Started</Button>
-      </a>
-    </div>
-  </div>
+  <div>
+    <section class="flex min-h-[min(100dvh,720px)] flex-col items-center justify-center px-4 pt-16 text-center md:pt-20">
+      <DkReveal class="flex max-w-2xl flex-col items-center">
+        <p class="dk-caption-strong mb-3 rounded-[var(--dk-radius-pill)] bg-[var(--dk-canvas-parchment)] px-3 py-1 text-[var(--dk-ink-muted-80)]">
+          Free and open source
+        </p>
+        <h1 class="dk-display-lg text-[var(--dk-ink)]">
+          Minimal Nuxt Boilerplate
+        </h1>
+        <p class="dk-body mt-4 text-[var(--dk-ink-muted-80)]">
+          A Nuxt 4 starter with Tailwind CSS, Shadcn UI, Nuxt Icons, and Cursor rules.
+        </p>
+        <p class="dk-body mt-2 text-[var(--dk-ink-muted-80)]">
+          Includes routing, components, dark mode, and a design-kit layer.
+        </p>
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <DkButton href="#install" variant="primary">
+            Get Started
+          </DkButton>
+          <DkButton
+            href="https://nuxtz-demo.vercel.app/"
+            variant="secondary"
+          >
+            See Demo
+          </DkButton>
+        </div>
+      </DkReveal>
+    </section>
 
-  <InstallGuide />
-  <Options />
-  <About />
-  <FAQ />
+    <Options />
+    <InstallGuide />
+    <About />
+    <FAQ />
+  </div>
 </template>
 
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
-
 useSeoMeta({
   title: 'Nuxtz — Free Nuxt 4 Boilerplate with Tailwind & Shadcn UI',
   description: 'Clone Nuxtz for free — a modern Nuxt 4 starter with Tailwind CSS, Shadcn UI, Nuxt Icons, dark mode, and Cursor rules for AI-assisted development.',
@@ -42,8 +47,4 @@ useSeoMeta({
   twitterTitle: 'Nuxtz — Free Nuxt 4 Boilerplate',
   twitterDescription: 'Clone, install, and ship faster with a modern Nuxt 4 starter template.',
 })
-
-function goToDemo() {
-  window.open('https://nuxtz-demo.vercel.app/', '_blank')
-}
 </script>

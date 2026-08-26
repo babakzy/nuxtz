@@ -1,98 +1,120 @@
 <template>
- <div class="flex flex-wrap items-center justify-center mt-20">
-        <div class="basis-full md:basis-1/4">
-            <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
-                <Icon name="ph:paint-brush" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
-                <h3 class="font-bold text-xl">Tailwind CSS</h3>
-                <p>A utility-first CSS framework for rapid UI development.</p>
-            </div>
-        </div>
-        <div class="basis-full md:basis-1/4">
-            <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
-                <Icon name="ph:squares-four" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
-                <h3 class="font-bold text-xl">Shadcn UI</h3>
-                <p>A collection of beautifully designed UI components.</p>
-            </div>
-        </div>
-        <div class="basis-full md:basis-1/4">
-            <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
-                <Icon name="ph:shapes" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
-                <h3 class="font-bold text-xl">Nuxt Icons</h3>
-                <p>A versatile icon library for modern applications.</p>
-            </div>
-        </div>
-        <div class="basis-full md:basis-1/4">
-            <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
-                <Icon name="ph:moon" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
-                <h3 class="font-bold text-xl">Dark Mode</h3>
-                <p>A feature that enhances user experience in low-light settings.</p>
-            </div>
-        </div>
-        <div class="basis-full md:basis-1/4">
-            <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
-                <Icon name="ph:palette" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
-                <h3 class="font-bold text-xl">SCSS Support</h3>
-                <p>Sass/SCSS styling with a ready-made global stylesheet.</p>
-            </div>
-        </div>
+  <section id="features" class="mx-auto max-w-store px-4 py-16 md:py-20">
+    <h2 class="dk-display-md text-center text-[var(--dk-ink)]">
+      What's included
+    </h2>
+    <p class="dk-body mx-auto mt-4 mb-10 max-w-[55ch] text-center text-[var(--dk-ink-muted-80)]">
+      Common Nuxt 4 tooling and project structure, configured so you can start from a working base instead of wiring everything yourself.
+    </p>
 
-        <div class="basis-full md:basis-1/4">
-            <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
-                <Icon name="ph:notebook" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
-                <h3 class="font-bold text-xl">Cursor Rules</h3>
-                <p>Intuitive cursor behaviors for enhanced interactivity.</p>
-            </div>
-        </div>
-        <div class="basis-full md:basis-1/4">
-            <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
-                <Icon name="ph:text-t" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
-                <h3 class="font-bold text-xl">Nuxt Fonts</h3>
-                <p>Seamless integration of custom fonts for better typography.</p>
-            </div>
-        </div>
-        <div class="basis-full md:basis-1/4">
-            <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
-                <Icon name="ph:image" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
-                <h3 class="font-bold text-xl">Nuxt Image</h3>
-                <p>Optimized image handling for faster loading times.</p>
-            </div>
-        </div>
-        <div class="basis-full md:basis-1/4">
-            <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
-                <Icon name="ph:folder-simple" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
-                <h3 class="font-bold text-xl">Nuxt Directory Essentials</h3>
-                <p>Organized project structure for efficient development.</p>
-            </div>
-        </div>
-        <div class="basis-full md:basis-1/4">
-            <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
-                <Icon name="ph:layout" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
-                <h3 class="font-bold text-xl">Minimal Landing Page</h3>
-                <p>A clean landing for app landing pages.</p>
-            </div>
-        </div>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <component
+        :is="feature.href ? 'a' : 'div'"
+        v-for="feature in highlightedFeatures"
+        :key="feature.title"
+        :href="feature.href"
+        :target="feature.href ? '_blank' : undefined"
+        :rel="feature.href ? 'noopener noreferrer' : undefined"
+        class="feature-card lg:col-span-2"
+      >
+        <Icon
+          :name="feature.icon"
+          class="mb-2 text-3xl text-[var(--dk-primary)]"
+        />
+        <h3 class="dk-body-strong text-[var(--dk-ink)]">
+          {{ feature.title }}
+        </h3>
+        <p class="dk-caption mt-1 flex-1 text-[var(--dk-ink-muted-80)]">
+          {{ feature.description }}
+        </p>
+      </component>
 
-        <div class="basis-full md:basis-1/4">
-                    <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
-                <Icon name="ph:puzzle-piece" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
-                <h3 class="font-bold text-xl">VueUse</h3>
-                <p>Essential composition utilities for Vue.js applications.</p>
-            </div>
-        </div>
-        <div class="basis-full md:basis-1/4">
-            <div class="bg-gray-100 p-5 mb-2 md:m-2 dark:bg-gray-800 rounded-md">
-                <Icon name="ph:github-logo" class="text-3xl mb-2 text-green-600 dark:text-green-300" />
-                <h3 class="font-bold text-xl">Free & Open Source</h3>
-                <p>Clone from GitHub and use it freely for any project.</p>
-            </div>
-        </div>
+      <div
+        v-for="feature in features"
+        :key="feature.title"
+        class="feature-card"
+      >
+        <Icon
+          :name="feature.icon"
+          class="mb-2 text-3xl text-[var(--dk-primary)]"
+        />
+        <h3 class="dk-body-strong text-[var(--dk-ink)]">
+          {{ feature.title }}
+        </h3>
+        <p class="dk-caption mt-1 flex-1 text-[var(--dk-ink-muted-80)]">
+          {{ feature.description }}
+        </p>
+      </div>
     </div>
+  </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
+const highlightedFeatures = [
+  {
+    title: 'Skills for AI',
+    icon: 'ph:sparkle',
+    description: 'Agent skills and Cursor rules in .agents/skills.',
+    href: 'https://github.com/babakzy/nuxtz/tree/main/.agents/skills',
+  },
+  {
+    title: 'DESIGN-KIT.md',
+    icon: 'ph:swatches',
+    description: 'Design token spec. Implemented in layers/design-kit.',
+    href: 'https://github.com/babakzy/nuxtz/blob/main/DESIGN-KIT.md',
+  },
+]
 
+const features = [
+  {
+    title: 'Tailwind CSS',
+    icon: 'ph:paint-brush',
+    description: 'Utility-first CSS framework for rapid UI development.',
+  },
+  {
+    title: 'Shadcn UI',
+    icon: 'ph:squares-four',
+    description: 'A collection of Vue components you can customize.',
+  },
+  {
+    title: 'Nuxt Icons',
+    icon: 'ph:shapes',
+    description: 'Iconify icons with a simple Icon component.',
+  },
+  {
+    title: 'Dark mode',
+    icon: 'ph:moon',
+    description: 'Light and dark themes with VueUse.',
+  },
+  {
+    title: 'Nuxt Image',
+    icon: 'ph:image',
+    description: 'Optimized image handling for faster loading.',
+  },
+  {
+    title: 'Nuxt directories',
+    icon: 'ph:folder-simple',
+    description: 'Standard pages, components, and composables layout.',
+  },
+  {
+    title: 'Landing page',
+    icon: 'ph:layout',
+    description: 'A simple starting page for marketing sites.',
+  },
+  {
+    title: 'VueUse',
+    icon: 'ph:puzzle-piece',
+    description: 'Composition utilities for Vue applications.',
+  },
+]
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.feature-card {
+  @apply flex h-full flex-col rounded-[var(--dk-radius-lg)] border border-[var(--dk-hairline)] bg-[var(--dk-canvas)] p-5;
+}
 
+a.feature-card {
+  @apply transition-opacity hover:opacity-80;
+}
 </style>

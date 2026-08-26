@@ -1,96 +1,82 @@
 <template>
-  <section  class="faq-section flex flex-wrap justify-center mt-20">
-    <div  class="basis-full md:basis-1/2 md:pr-4">
-        <h2 class="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
-       <h1 class="text-2xl font-bold">What is Nuxtz?</h1>
-        <p class="">Nuxtz is a free, open-source boilerplate for Nuxt 4. It ships with popular configurations and features so you can start building a modern web application without setting everything up from scratch.</p>
-      
-        <p class="my-6">If you have any questions, feel free to reach out to <a href="https://babakzy.com" class="text-blue-500 hover:text-blue-700">Babak Sadeghzadeh</a>.</p>
-     
-    </div>
-    <div id="faq" class="basis-full md:basis-1/2">
-        <div class="space-y-4">
-      <div v-for="(faq, index) in faqs" :key="index" class="faq-item">
-        <button 
-          class="w-full flex justify-between items-center text-left"
-          @click="toggleFAQ(index)"
-        >
-          <h3 class="text-lg font-semibold">{{ faq.question }}</h3>
-          <svg 
-            class="w-5 h-5 transition-transform duration-200"
-            :class="{ 'rotate-180': openIndex === index }"
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <transition
-          enter-active-class="transition-all duration-200"
-          leave-active-class="transition-all duration-200"
-          enter-from-class="max-h-0 opacity-0"
-          enter-to-class="max-h-[500px] opacity-100"
-          leave-from-class="max-h-[500px] opacity-100"
-          leave-to-class="max-h-0 opacity-0"
-        >
-          <p v-show="openIndex === index" class="text-gray-600 dark:text-gray-400 mt-2 overflow-hidden">{{ faq.answer }}</p>
-        </transition>
+  <section id="faq" class="mx-auto max-w-store px-4 py-16 md:py-20">
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <h2 class="dk-display-md mb-6 text-[var(--dk-ink)]">
+          Frequently asked questions
+        </h2>
+        <p class="dk-body text-[var(--dk-ink-muted-80)]">
+          Nuxtz is a free Nuxt 4 boilerplate with common tooling included.
+          Contact
+          <DkTextLink href="https://babakzy.com">Babak Sadeghzadeh</DkTextLink>
+          if you have questions.
+        </p>
       </div>
+
+      <div class="space-y-4">
+        <div
+          v-for="(faq, index) in faqs"
+          :key="faq.question"
+          class="rounded-[var(--dk-radius-lg)] border border-[var(--dk-hairline)] p-5"
+        >
+          <button
+            type="button"
+            class="flex w-full items-center justify-between gap-4 text-left"
+            :aria-expanded="openIndex === index"
+            @click="toggleFAQ(index)"
+          >
+            <span class="dk-body-strong text-[var(--dk-ink)]">
+              {{ faq.question }}
+            </span>
+            <Icon
+              name="ph:caret-down"
+              class="size-5 shrink-0 text-[var(--dk-ink-muted-48)] transition-transform duration-200"
+              :class="{ 'rotate-180': openIndex === index }"
+            />
+          </button>
+          <p
+            v-show="openIndex === index"
+            class="dk-body mt-2 text-[var(--dk-ink-muted-80)]"
+          >
+            {{ faq.answer }}
+          </p>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+const openIndex = ref<number | null>(null)
 
-export default defineComponent({
-  name: 'FAQ',
-  data() {
-    return {
-      openIndex: null as number | null,
-      faqs: [
-        {
-          question: 'Is Nuxtz really free?',
-          answer: 'Yes. Nuxtz is completely free and open source. Clone it from GitHub, run npm install, and use it for personal or commercial projects.',
-        },
-        {
-          question: 'What is the benefit of using this boilerplate?',
-          answer: 'You save time by starting from a pre-configured Nuxt 4 project with Tailwind CSS, Shadcn UI, dark mode, and Cursor rules already set up.',
-        },
-        {
-          question: 'What technologies are included?',
-          answer: 'Nuxt 4, Vue 3, TypeScript, Tailwind CSS, Shadcn UI, Nuxt Icons, Nuxt Image, Nuxt Fonts, VueUse, and nuxt-mcp-dev for AI-assisted development.',
-        },
-        {
-          question: 'How do I get started?',
-          answer: 'Run git clone https://github.com/babakzy/nuxtz.git, then cd nuxtz, npm install, and npm run dev. The app will be available at localhost:3000.',
-        },
-        {
-          question: 'Can I customize the included features?',
-          answer: 'Absolutely. The boilerplate is modular — add or remove features by editing the config and installing additional dependencies as needed.',
-        },
-        {
-          question: 'Where can I find documentation?',
-          answer: 'See nuxt.com for Nuxt, vuejs.org for Vue, tailwindcss.com for Tailwind, and shadcn-vue.com for Shadcn UI components.',
-        },
-      ],
-    }
+const faqs = [
+  {
+    question: 'Is Nuxtz free?',
+    answer: 'Yes. Nuxtz is open source. Clone it from GitHub, run npm install, and use it for personal or commercial projects.',
   },
-  methods: {
-    toggleFAQ(index: number) {
-      this.openIndex = this.openIndex === index ? null : index
-    },
+  {
+    question: 'Why use this boilerplate?',
+    answer: 'It saves setup time. Nuxt 4, Tailwind CSS, Shadcn UI, dark mode, and Cursor rules are already configured.',
   },
-})
-</script>
+  {
+    question: 'What technologies are included?',
+    answer: 'Nuxt 4, Vue 3, TypeScript, Tailwind CSS, Shadcn UI, Nuxt Icons, Nuxt Image, VueUse, Inter via Fontsource, and a design-kit Nuxt layer.',
+  },
+  {
+    question: 'How do I get started?',
+    answer: 'Run git clone https://github.com/babakzy/nuxtz.git, then cd nuxtz, npm install, and npm run dev. The app runs at localhost:3000.',
+  },
+  {
+    question: 'Can I customize it?',
+    answer: 'Yes. Add or remove modules, edit the config, and install additional dependencies as needed.',
+  },
+  {
+    question: 'Where is the documentation?',
+    answer: 'See nuxt.com, vuejs.org, tailwindcss.com, and shadcn-vue.com. Design tokens are documented in DESIGN-KIT.md.',
+  },
+]
 
-<style scoped>
-
-.faq-item {
-  @apply p-5 rounded-lg border border-gray-200 dark:border-gray-800;
+function toggleFAQ(index: number) {
+  openIndex.value = openIndex.value === index ? null : index
 }
-</style>
+</script>
